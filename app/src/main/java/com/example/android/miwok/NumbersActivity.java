@@ -9,25 +9,16 @@ import android.widget.ListView;
 import java.util.ArrayList;
 
 public class NumbersActivity extends AppCompatActivity {
-    ArrayList<String> words = new ArrayList<String>();
+    ArrayList<Word> words = new ArrayList<Word>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_numbers);
 
-        words.add("one");
-        words.add("two");
-        words.add("three");
-        words.add("four");
-        words.add("five");
-        words.add("six");
-        words.add("seven");
-        words.add("eight");
-        words.add("nine");
-        words.add("ten"); 
+        words.add(new Word("one","lutti"));
 
-        ArrayAdapter<String> itemsAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, words);
+        WordAdapter itemsAdapter = new WordAdapter(this,words);
         ListView list = (ListView) findViewById(R.id.list);
         list.setAdapter(itemsAdapter);
     }
